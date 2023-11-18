@@ -67,7 +67,7 @@ local EnabledToggle3 = Section3:NewToggle("TRY?!?!", function(bool)
         Title = "Notification",
         Content = "Notification Content",
         Duration = 6.5,
-        Image = 4483362458,
+        Image = 448336245
         Actions = {
             Ignore = {
                 Name = "Ignore!",
@@ -82,3 +82,9 @@ end, true) -- "true" is the default value of toggle
 local DisabledToggle3 = Section3:NewToggle("Disabled Toggle", function(bool)
     -- code here
 end, false) -- "false" is the default value of toggle
+
+--//tab
+local Tab3 = Window:NewTab("BLOX FRUIT")
+
+--//section
+local Section3 = Tab3:NewSection("AUTO FARMTHINGS")
