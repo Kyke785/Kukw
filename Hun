@@ -2,9 +2,9 @@
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
 -- Configuration
-local GKey = "https://pastebin.com/raw/sjqu9z46" -- change to whatever
+local GKey = "LU9" -- change to whatever
 local TextLabelText1 = "Key System" -- change to whatever
-local TextLabelText2 = "Join Discord! .gg/" -- change to whatever!
+local TextLabelText2 = "/" -- change to whatever!
 local TextFontAll = "FredokaOne" -- Enter Any Font!
 
 -- This will only load the script, not execute it.
