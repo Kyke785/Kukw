@@ -4,7 +4,7 @@
 -- Configuration
 local GKey = "LU9" -- change to whatever
 local TextLabelText1 = "Key System" -- change to whatever
-local TextLabelText2 = "/" -- change to whatever!
+local TextLabelText2 = "join https://discord.com/invite/W5KAd3G58s" -- change to whatever!
 local TextFontAll = "FredokaOne" -- Enter Any Font!
 
 -- This will only load the script, not execute it.
