@@ -5,10 +5,10 @@
 local GKey = "LU9" -- change to whatever
 local TextLabelText1 = "Key System" -- change to whatever
 local TextLabelText2 = "join https://discord.com/invite/W5KAd3G58s" -- change to whatever!
-local TextFontAll = "FredokaOne" -- Enter Any Font!
+local TextFontAll = "Futura" -- Enter Any Font!
 
 -- This will only load the script, not execute it.
-local executeScript = loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe./8fb5ed20fb168d1ae3044ede45b90f67e3fb37a2/file'),true))
+local executeScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kyke785/V8/main/Beta",true))();
 
 -- Tween Service
 local TweenService = game:GetService("TweenService")
