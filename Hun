@@ -12,7 +12,7 @@ frame.Parent = screenGui
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 20)
 title.Position = UDim2.new(0, 0, 0, -20)
-title.Text = "Universal Key System Script"
+title.Text = "proton Key System "
 title.TextColor3 = Color3.new(1, 1, 1)
 title.BackgroundColor3 = Color3.new(0, 0, 0)
 title.Parent = frame
@@ -105,5 +105,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Kyke785/V8/main/Beta"
 end)
 
 GetKeyButton.MouseButton1Click:Connect(function()
- setclipboard("https://pastebin.com/raw/sjqu9z46") 
+ setclipboard("https://link-center.net/968413/just-key") 
 end) 
