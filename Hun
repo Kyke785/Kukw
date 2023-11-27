@@ -1,175 +1,109 @@
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
--- Configuration
-local GKey = "LU9" -- change to whatever
-local TextLabelText1 = "Key System" -- change to whatever
-local TextLabelText2 = "join https://discord.com/invite/W5KAd3G58s" -- change to whatever!
-local TextFontAll = "Futura" -- Enter Any Font!
+-- Made BY Mr.Alegator
 
--- This will only load the script, not execute it.
-local executeScript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kyke785/V8/main/Beta",true))();
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- Tween Service
-local TweenService = game:GetService("TweenService")
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 100)
+frame.Position = UDim2.new(0.5, -100, 0.5, -50)
+frame.BackgroundColor3 = Color3.new(1, 1, 1)
+frame.Parent = screenGui
 
--- GUI Creation
-local KeySystem = Instance.new("ScreenGui")
-local KeyMain = Instance.new("Frame")
-local KeyEnter = Instance.new("TextBox")
-local UICorner = Instance.new("UICorner")
-local UICorner_2 = Instance.new("UICorner")
-local Text1 = Instance.new("TextLabel")
-local Text2 = Instance.new("TextLabel")
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 20)
+title.Position = UDim2.new(0, 0, 0, -20)
+title.Text = "Universal Key System Script"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.BackgroundColor3 = Color3.new(0, 0, 0)
+title.Parent = frame
 
--- Properties for KeySystem
-KeySystem.Name = "KeySystem"
-KeySystem.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-KeySystem.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local dragging
+local dragInput
+local dragStart
+local startPos
 
--- Properties for KeyMain
-KeyMain.Name = "KeyMain"
-KeyMain.Parent = KeySystem
-KeyMain.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
-KeyMain.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyMain.BorderSizePixel = 0
-KeyMain.Position = UDim2.new(0.37667945, 0, 0.385529906, 0)
-KeyMain.Size = UDim2.new(0, 324, 0, 133)
-KeyMain.Active = true
-KeyMain.Draggable = true
-
--- Properties for KeyEnter
-KeyEnter.Name = "KeyEnter"
-KeyEnter.Parent = KeyMain
-KeyEnter.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
-KeyEnter.BorderColor3 = Color3.fromRGB(0, 0, 0)
-KeyEnter.BorderSizePixel = 0
-KeyEnter.Position = UDim2.new(0.191307724, 0, 0.651018858, 0)
-KeyEnter.Size = UDim2.new(0, 200, 0, 38)
-KeyEnter.Font = Enum.Font[TextFontAll]
-KeyEnter.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
-KeyEnter.PlaceholderText = "Enter You Key Here!"
-KeyEnter.Text = ""
-KeyEnter.TextColor3 = Color3.fromRGB(255, 255, 255)
-KeyEnter.TextSize = 14.000
-KeyEnter.TextStrokeTransparency = 0.000
-KeyEnter.TextWrapped = true
-
-UICorner.CornerRadius = UDim.new(0, 22)
-UICorner.Parent = KeyEnter
-
-UICorner_2.CornerRadius = UDim.new(0, 22)
-UICorner_2.Parent = KeyMain
-
--- Properties for Text1
-Text1.Name = "Text1"
-Text1.Parent = KeyMain
-Text1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text1.BackgroundTransparency = 1.000
-Text1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text1.BorderSizePixel = 0
-Text1.Position = UDim2.new(0, 0, 0.05511811, 0)
-Text1.Size = UDim2.new(0, 324, 0, 27)
-Text1.Font = Enum.Font[TextFontAll]
-Text1.Text = TextLabelText1
-Text1.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text1.TextScaled = true
-Text1.TextSize = 14.000
-Text1.TextStrokeTransparency = 0.000
-Text1.TextWrapped = true
-
--- Properties for Text2
-Text2.Name = "Text2"
-Text2.Parent = KeyMain
-Text2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Text2.BackgroundTransparency = 1.000
-Text2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Text2.BorderSizePixel = 0
-Text2.Position = UDim2.new(0, 0, 0.352554679, 0)
-Text2.Size = UDim2.new(0, 324, 0, 27)
-Text2.Font = Enum.Font[TextFontAll]
-Text2.Text = TextLabelText2
-Text2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Text2.TextScaled = true
-Text2.TextSize = 14.000
-Text2.TextStrokeTransparency = 0.000
-Text2.TextWrapped = true
-
--- Fade in function
-KeyMain.BackgroundTransparency = 1
-Text1.TextTransparency = 1
-Text2.TextTransparency = 1
-KeyEnter.BackgroundTransparency = 1
-
--- Tween Creation for Fade-In
-local fadeInInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local KeyMainGoalsFadeIn = { BackgroundTransparency = 0 }
-local KeyMainTweenFadeIn = TweenService:Create(KeyMain, fadeInInfo, KeyMainGoalsFadeIn)
-
-local textGoalsFadeIn = { TextTransparency = 0 }
-local Text1TweenFadeIn = TweenService:Create(Text1, fadeInInfo, textGoalsFadeIn)
-local Text2TweenFadeIn = TweenService:Create(Text2, fadeInInfo, textGoalsFadeIn)
-
-local KeyEnterGoalsFadeIn = { BackgroundTransparency = 0.75 }
-local KeyEnterTweenFadeIn = TweenService:Create(KeyEnter, fadeInInfo, KeyEnterGoalsFadeIn)
-
--- Play the fade-in Tweens
-KeyMainTweenFadeIn:Play()
-Text1TweenFadeIn:Play()
-Text2TweenFadeIn:Play()
-KeyEnterTweenFadeIn:Play()
-
--- Key Checking Functionality
-local function checkKey()
-    local feedbackTweenInfo = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-    local feedbackTween
-
-    if KeyEnter.Text == GKey then
-        print("Correct Key!")
-        
-        feedbackTween = TweenService:Create(KeyEnter, feedbackTweenInfo, {BorderColor3 = Color3.new(0, 1, 0)})
-        feedbackTween:Play()
-
-        feedbackTween.Completed:Connect(function()
-            KeyEnter.BorderColor3 = Color3.new(0, 0, 0) -- Reset to original after flashing
-        end)
-
-        wait(1)
-
-        executeScript()
-
-        local fadeOutInfo = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-        local fadeOutGoals = { BackgroundTransparency = 1 }
-        local KeyMainFadeOut = TweenService:Create(KeyMain, fadeOutInfo, fadeOutGoals)
-        local Text1FadeOut = TweenService:Create(Text1, fadeOutInfo, { TextTransparency = 1 })
-        local Text2FadeOut = TweenService:Create(Text2, fadeOutInfo, { TextTransparency = 1 })
-        local KeyEnterFadeOut = TweenService:Create(KeyEnter, fadeOutInfo, { BackgroundTransparency = 1 })
-
-        KeyMainFadeOut:Play()
-        Text1FadeOut:Play()
-        Text2FadeOut:Play()
-        KeyEnterFadeOut:Play()
-
-        KeyMainFadeOut.Completed:Connect(function()
-            KeySystem:Destroy()
-        end)
-
-    else
-        print("Wrong Key!")
-
-        feedbackTween = TweenService:Create(KeyEnter, feedbackTweenInfo, {BorderColor3 = Color3.new(1, 0, 0)})
-        feedbackTween:Play()
-
-        feedbackTween.Completed:Connect(function()
-            KeyEnter.BorderColor3 = Color3.new(0, 0, 0)
-        end)
-
-        wait(1)
-    end
+local function update(input)
+    local delta = input.Position - dragStart
+    frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-KeyEnter.FocusLost:Connect(function(enterPressed)
-    if enterPressed then
-        checkKey()
+title.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
     end
 end)
+
+title.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+title.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = false
+        dragInput = nil
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+local KeySystem = Instance.new("TextBox")
+KeySystem.Size = UDim2.new(1, 0, 0.5, 0)
+KeySystem.Position = UDim2.new(0, 0, 0, 0)
+KeySystem.Text = "Enter the Key"
+KeySystem.TextColor3 = Color3.new(0, 0, 0)
+KeySystem.BackgroundTransparency = 0.5
+KeySystem.BackgroundColor3 = Color3.new(1, 1, 1)
+KeySystem.TextWrapped = true
+KeySystem.Parent = frame
+
+local SubmitButton = Instance.new("TextButton")
+SubmitButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+SubmitButton.Position = UDim2.new(0, 0, 0.5, 0)
+SubmitButton.Text = "Submit"
+SubmitButton.Parent = frame
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Position = UDim2.new(1, -20, 0, 0)
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.new(1, 1, 1)
+CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+CloseButton.Parent = frame
+
+CloseButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+local GetKeyButton = Instance.new("TextButton")
+GetKeyButton.Size = UDim2.new(0.5, 0, 0.5, 0)
+GetKeyButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+GetKeyButton.Text = "Get Key"
+GetKeyButton.Parent = frame
+--------------------------------------------------------------------------
+SubmitButton.MouseButton1Click:Connect(function()
+    local KeySystem = KeySystem.Text
+    if KeySystem == "U9" then   
+screenGui:Destroy()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Kyke785/V8/main/Beta",true))();
+  
+  end
+end)
+
+GetKeyButton.MouseButton1Click:Connect(function()
+ setclipboard("https://pastebin.com/raw/sjqu9z46") 
+end) 
